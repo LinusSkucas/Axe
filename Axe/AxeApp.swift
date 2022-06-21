@@ -23,6 +23,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         button.image = NSImage(systemSymbolName: loggerStatus.rawValue, accessibilityDescription: nil)
         button.action = #selector(toggleProtection(_:))
         button.sendAction(on: [.leftMouseDown])
+        
+        checkOtherActivations()
     }
     
     func changeStatus() {
