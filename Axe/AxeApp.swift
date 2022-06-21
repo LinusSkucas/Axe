@@ -31,14 +31,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         button.image = NSImage(systemSymbolName: loggerStatus.rawValue, accessibilityDescription: nil)
     }
     
+    func checkOtherActivations() {
+        if IsSecureEventInputEnabled() {
+            loggerStatus = .activeByOtherApp
+        } else {
+            loggerStatus = .inactive
+        }
+    }
+    
     @objc func toggleProtection(_ sender: NSStatusBarButton) {
         switch loggerStatus {
         case .inactive:
-            loggerStatus = .active
             EnableSecureEventInput()
+            loggerStatus = .active
         case .active:
-            loggerStatus = .inactive
             DisableSecureEventInput()
+            checkOtherActivations()
         case .activeByOtherApp:
             loggerStatus = .active
         }
