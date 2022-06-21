@@ -78,6 +78,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusBarMenu.addItem(enableOnOpenItem)
         
         statusBarMenu.addItem(withTitle: "TODO: Check for Updates...", action: nil, keyEquivalent: "")
+        statusBarMenu.addItem(NSMenuItem.separator())
+        statusBarMenu.addItem(withTitle: "About Axe", action: #selector(openAboutWindow), keyEquivalent: "")
         statusBarMenu.addItem(withTitle: "TODO: Axe Help", action: nil, keyEquivalent: "")
         statusBarMenu.addItem(NSMenuItem.separator())
         statusBarMenu.addItem(withTitle: "Quit Axe\(mustQuitWithAlert() ? "..." : "")", action: #selector(quitAxe), keyEquivalent: "q")
@@ -95,6 +97,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     private func mustQuitWithAlert() -> Bool {
         return loggerStatus == .active && (defaults.bool(forKey: AxeDefaultKeys.quitAlertSuppression.rawValue) == false)
+    }
+    
+    @objc func openAboutWindow() {
+        NSApp.orderFrontStandardAboutPanel(nil)
     }
     
     @objc func toggleLaunchOnLogin() {
@@ -123,6 +129,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             quitAlert.addButton(withTitle: "Quit Axe")
             
             let response = quitAlert.runModal()
+            NSApp.arrangeInFront(nil)
             
             if let suppressionButton = quitAlert.suppressionButton,
                suppressionButton.state == .on {
