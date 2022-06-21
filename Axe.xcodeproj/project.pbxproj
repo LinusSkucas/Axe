@@ -8,18 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		15455CFC2862313800EEF5A4 /* AxeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15455CFB2862313800EEF5A4 /* AxeApp.swift */; };
-		15455CFE2862313800EEF5A4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15455CFD2862313800EEF5A4 /* ContentView.swift */; };
 		15455D002862313E00EEF5A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15455CFF2862313E00EEF5A4 /* Assets.xcassets */; };
 		15455D032862313E00EEF5A4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15455D022862313E00EEF5A4 /* Preview Assets.xcassets */; };
+		15455D0C2862349500EEF5A4 /* LoggerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15455D0B2862349500EEF5A4 /* LoggerStatus.swift */; };
+		15455D1128623F8800EEF5A4 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15455D1028623F8800EEF5A4 /* Carbon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		15455CF82862313800EEF5A4 /* Axe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Axe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15455CFB2862313800EEF5A4 /* AxeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AxeApp.swift; sourceTree = "<group>"; };
-		15455CFD2862313800EEF5A4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		15455CFF2862313E00EEF5A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15455D022862313E00EEF5A4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		15455D042862313E00EEF5A4 /* Axe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Axe.entitlements; sourceTree = "<group>"; };
+		15455D0A286233A400EEF5A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		15455D0B2862349500EEF5A4 /* LoggerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerStatus.swift; sourceTree = "<group>"; };
+		15455D1028623F8800EEF5A4 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15455D1128623F8800EEF5A4 /* Carbon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +42,7 @@
 			children = (
 				15455CFA2862313800EEF5A4 /* Axe */,
 				15455CF92862313800EEF5A4 /* Products */,
+				15455D0F28623F8800EEF5A4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,8 +57,9 @@
 		15455CFA2862313800EEF5A4 /* Axe */ = {
 			isa = PBXGroup;
 			children = (
+				15455D0A286233A400EEF5A4 /* Info.plist */,
 				15455CFB2862313800EEF5A4 /* AxeApp.swift */,
-				15455CFD2862313800EEF5A4 /* ContentView.swift */,
+				15455D0B2862349500EEF5A4 /* LoggerStatus.swift */,
 				15455CFF2862313E00EEF5A4 /* Assets.xcassets */,
 				15455D042862313E00EEF5A4 /* Axe.entitlements */,
 				15455D012862313E00EEF5A4 /* Preview Content */,
@@ -67,6 +73,14 @@
 				15455D022862313E00EEF5A4 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		15455D0F28623F8800EEF5A4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				15455D1028623F8800EEF5A4 /* Carbon.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,8 +153,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15455CFE2862313800EEF5A4 /* ContentView.swift in Sources */,
 				15455CFC2862313800EEF5A4 /* AxeApp.swift in Sources */,
+				15455D0C2862349500EEF5A4 /* LoggerStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,7 +211,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.4;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -251,7 +265,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.4;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -274,11 +288,13 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Axe/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = sh.linus.Axe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -301,11 +317,13 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Axe/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = sh.linus.Axe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
