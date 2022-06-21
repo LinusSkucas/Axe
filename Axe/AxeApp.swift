@@ -15,6 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             changeStatus()
         }
     }
+    var timer: Timer!
     
     func applicationDidFinishLaunching(_ notification: Notification) {
         statusBarItem = NSStatusBar.system.statusItem(withLength: CGFloat(NSStatusItem.squareLength))
@@ -24,8 +25,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         button.action = #selector(toggleProtection(_:))
         button.sendAction(on: [.leftMouseDown])
         
-        checkOtherActivations()
+        checkOtherActivationsBeforeDisabling()
+        
+        // Setup Timer
+        timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(checkOtherActiviations), userInfo: nil, repeats: true)
+        timer.tolerance = 7.0
+        RunLoop.current.add(timer, forMode: .common)
     }
+    
     
     func changeStatus() {
         guard let button = statusBarItem.button else { return }
@@ -33,7 +40,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         button.image = NSImage(systemSymbolName: loggerStatus.rawValue, accessibilityDescription: nil)
     }
     
-    func checkOtherActivations() {
+    func checkOtherActivationsBeforeDisabling() {
         if IsSecureEventInputEnabled() {
             loggerStatus = .activeByOtherApp
         } else {
@@ -48,9 +55,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             loggerStatus = .active
         case .active:
             DisableSecureEventInput()
-            checkOtherActivations()
+            checkOtherActivationsBeforeDisabling()
         case .activeByOtherApp:
             loggerStatus = .active
+        }
+    }
+    
+    @objc func checkOtherActiviations(timer: Timer) {
+        guard loggerStatus != .active else { return }
+        
+        if IsSecureEventInputEnabled() {
+            loggerStatus = .activeByOtherApp
+        } else {
+            loggerStatus = .inactive
         }
     }
 }
