@@ -31,6 +31,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         checkOtherActivationsBeforeDisabling()
         
+        if defaults.bool(forKey: AxeDefaultKeys.enableOnOpen.rawValue) {  // Auto enable if requested
+            loggerStatus = .active
+        }
         
         // Setup Timer
         timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(checkOtherActiviations), userInfo: nil, repeats: true)
@@ -68,6 +71,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         launchOnLoginItem.action = #selector(toggleLaunchOnLogin)
         statusBarMenu.addItem(launchOnLoginItem)
         
+        let enableOnOpenItem = NSMenuItem()
+        enableOnOpenItem.title = "Enable Secure Input on Open"
+        enableOnOpenItem.state = defaults.bool(forKey: AxeDefaultKeys.enableOnOpen.rawValue) ? .on : .off
+        enableOnOpenItem.action = #selector(toggleEnableOnOpen)
+        statusBarMenu.addItem(enableOnOpenItem)
+        
         statusBarMenu.addItem(withTitle: "TODO: Check for Updates...", action: nil, keyEquivalent: "")
         statusBarMenu.addItem(withTitle: "TODO: Axe Help", action: nil, keyEquivalent: "")
         statusBarMenu.addItem(NSMenuItem.separator())
@@ -92,6 +101,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         LaunchAtLogin.isEnabled.toggle()
     }
     
+    @objc func toggleEnableOnOpen() {
+        defaults.set(!defaults.bool(forKey: AxeDefaultKeys.enableOnOpen.rawValue), forKey: AxeDefaultKeys.enableOnOpen.rawValue)
     }
     
     @objc func quitAxe() {
