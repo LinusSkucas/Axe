@@ -74,6 +74,58 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
+    @objc func quitAxe() {
+        let alertSuppressionKey = "QuitAlertSuppression"
+        let defaults = UserDefaults.standard
+        
+        if loggerStatus == .active && (defaults.bool(forKey: alertSuppressionKey) == false) {
+            let quitAlert = NSAlert()
+            quitAlert.alertStyle = .critical
+            quitAlert.icon = NSImage(named: "NXUpdate")!
+            
+            quitAlert.messageText = "Secure Input is Still Enabled"
+            quitAlert.informativeText = "Quitting Axe will disable Secure Input."
+            
+            quitAlert.showsSuppressionButton = true
+            quitAlert.suppressionButton?.title = "Do not show this warning again"
+            
+            quitAlert.showsHelp = true
+            
+            quitAlert.addButton(withTitle: "Cancel")
+            quitAlert.addButton(withTitle: "Quit Axe")
+            
+            let response = quitAlert.runModal()
+            
+            if let suppressionButton = quitAlert.suppressionButton,
+               suppressionButton.state == .on {
+                defaults.set(true, forKey: alertSuppressionKey)
+            }
+            
+            guard response == .alertSecondButtonReturn else { return }
+        }
+        NSApp.terminate(nil)
+    }
+    
+    @objc func toggleProtection(_ sender: NSStatusBarButton) {
+        guard let event = NSApp.currentEvent else { return }
+        
+        if event.type == NSEvent.EventType.leftMouseDown {
+            switch loggerStatus {
+            case .inactive:
+                EnableSecureEventInput()
+                loggerStatus = .active
+            case .active:
+                DisableSecureEventInput()
+                checkOtherActivationsBeforeDisabling()
+            case .activeByOtherApp:
+                loggerStatus = .active
+            }
+        } else if event.type == NSEvent.EventType.rightMouseDown {
+            statusBarItem.menu = createMenu()
+            statusBarItem.button?.performClick(nil)
+            statusBarItem.menu = nil
+        }
+    }
     
     @objc func checkOtherActiviations(timer: Timer) {
         guard loggerStatus != .active else { return }
