@@ -18,6 +18,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var timer: Timer!
     var statusBarMenu: NSMenu!
     
+    let alertSuppressionKey = "QuitAlertSuppression"
+    let defaults = UserDefaults.standard
+    
     func applicationDidFinishLaunching(_ notification: Notification) {
         statusBarItem = NSStatusBar.system.statusItem(withLength: CGFloat(NSStatusItem.squareLength))
         
@@ -61,7 +64,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusBarMenu.addItem(withTitle: "TODO: Check for Updates...", action: nil, keyEquivalent: "")
         statusBarMenu.addItem(withTitle: "TODO: Axe Help", action: nil, keyEquivalent: "")
         statusBarMenu.addItem(NSMenuItem.separator())
-        statusBarMenu.addItem(withTitle: "Quit Axe", action: #selector(quitAxe), keyEquivalent: "q")
+        statusBarMenu.addItem(withTitle: "Quit Axe\(mustQuitWithAlert() ? "..." : "")", action: #selector(quitAxe), keyEquivalent: "q")
         
         return statusBarMenu
     }
@@ -74,11 +77,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
+    private func mustQuitWithAlert() -> Bool {
+        return loggerStatus == .active && (defaults.bool(forKey: alertSuppressionKey) == false)
+    }
+    
     @objc func quitAxe() {
-        let alertSuppressionKey = "QuitAlertSuppression"
-        let defaults = UserDefaults.standard
-        
-        if loggerStatus == .active && (defaults.bool(forKey: alertSuppressionKey) == false) {
+        if mustQuitWithAlert() {
             let quitAlert = NSAlert()
             quitAlert.alertStyle = .critical
             quitAlert.icon = NSImage(named: "NXUpdate")!
