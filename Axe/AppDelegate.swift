@@ -7,6 +7,7 @@
 
 import Cocoa
 import Carbon.HIToolbox.CarbonEventsCore
+import LaunchAtLogin
 
 class AppDelegate: NSObject, NSApplicationDelegate {
     var statusBarItem: NSStatusItem!
@@ -18,7 +19,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var timer: Timer!
     var statusBarMenu: NSMenu!
     
-    let alertSuppressionKey = "QuitAlertSuppression"
     let defaults = UserDefaults.standard
     
     func applicationDidFinishLaunching(_ notification: Notification) {
@@ -30,6 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         button.sendAction(on: [.leftMouseDown, .rightMouseDown])
         
         checkOtherActivationsBeforeDisabling()
+        
         
         // Setup Timer
         timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(checkOtherActiviations), userInfo: nil, repeats: true)
@@ -60,7 +61,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         statusBarMenu.addItem(statusItem)
         statusBarMenu.addItem(NSMenuItem.separator())
-        statusBarMenu.addItem(withTitle: "TODO: Launch on Login", action: nil, keyEquivalent: "")
+        
+        let launchOnLoginItem = NSMenuItem()
+        launchOnLoginItem.title = "Launch Axe on Login"
+        launchOnLoginItem.state = LaunchAtLogin.isEnabled ? .on : .off
+        launchOnLoginItem.action = #selector(toggleLaunchOnLogin)
+        statusBarMenu.addItem(launchOnLoginItem)
+        
         statusBarMenu.addItem(withTitle: "TODO: Check for Updates...", action: nil, keyEquivalent: "")
         statusBarMenu.addItem(withTitle: "TODO: Axe Help", action: nil, keyEquivalent: "")
         statusBarMenu.addItem(NSMenuItem.separator())
@@ -78,7 +85,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     private func mustQuitWithAlert() -> Bool {
-        return loggerStatus == .active && (defaults.bool(forKey: alertSuppressionKey) == false)
+        return loggerStatus == .active && (defaults.bool(forKey: AxeDefaultKeys.quitAlertSuppression.rawValue) == false)
+    }
+    
+    @objc func toggleLaunchOnLogin() {
+        LaunchAtLogin.isEnabled.toggle()
+    }
+    
     }
     
     @objc func quitAxe() {
@@ -102,7 +115,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             
             if let suppressionButton = quitAlert.suppressionButton,
                suppressionButton.state == .on {
-                defaults.set(true, forKey: alertSuppressionKey)
+                defaults.set(true, forKey: AxeDefaultKeys.quitAlertSuppression.rawValue)
             }
             
             guard response == .alertSecondButtonReturn else { return }

@@ -13,6 +13,8 @@
 		15455D0C2862349500EEF5A4 /* LoggerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15455D0B2862349500EEF5A4 /* LoggerStatus.swift */; };
 		15455D1128623F8800EEF5A4 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15455D1028623F8800EEF5A4 /* Carbon.framework */; };
 		15455D132862549200EEF5A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15455D122862549100EEF5A4 /* AppDelegate.swift */; };
+		15455D182862664300EEF5A4 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 15455D172862664300EEF5A4 /* LaunchAtLogin */; };
+		15455D1B2862696B00EEF5A4 /* AxeDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15455D1A2862696B00EEF5A4 /* AxeDefaultsKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,7 @@
 		15455D0B2862349500EEF5A4 /* LoggerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerStatus.swift; sourceTree = "<group>"; };
 		15455D1028623F8800EEF5A4 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		15455D122862549100EEF5A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		15455D1A2862696B00EEF5A4 /* AxeDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AxeDefaultsKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15455D182862664300EEF5A4 /* LaunchAtLogin in Frameworks */,
 				15455D1128623F8800EEF5A4 /* Carbon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -62,6 +66,7 @@
 				15455D0A286233A400EEF5A4 /* Info.plist */,
 				15455CFB2862313800EEF5A4 /* AxeApp.swift */,
 				15455D122862549100EEF5A4 /* AppDelegate.swift */,
+				15455D1A2862696B00EEF5A4 /* AxeDefaultsKeys.swift */,
 				15455D0B2862349500EEF5A4 /* LoggerStatus.swift */,
 				15455CFF2862313E00EEF5A4 /* Assets.xcassets */,
 				15455D042862313E00EEF5A4 /* Axe.entitlements */,
@@ -96,12 +101,16 @@
 				15455CF42862313800EEF5A4 /* Sources */,
 				15455CF52862313800EEF5A4 /* Frameworks */,
 				15455CF62862313800EEF5A4 /* Resources */,
+				15455D192862666800EEF5A4 /* Copy "Launch at Login Helper" */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Axe;
+			packageProductDependencies = (
+				15455D172862664300EEF5A4 /* LaunchAtLogin */,
+			);
 			productName = Axe;
 			productReference = 15455CF82862313800EEF5A4 /* Axe.app */;
 			productType = "com.apple.product-type.application";
@@ -130,6 +139,9 @@
 				Base,
 			);
 			mainGroup = 15455CEF2862313800EEF5A4;
+			packageReferences = (
+				15455D162862664300EEF5A4 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
+			);
 			productRefGroup = 15455CF92862313800EEF5A4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -151,6 +163,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		15455D192862666800EEF5A4 /* Copy "Launch at Login Helper" */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy \"Launch at Login Helper\"";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILT_PRODUCTS_DIR}/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Resources/copy-helper-swiftpm.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		15455CF42862313800EEF5A4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -158,6 +192,7 @@
 			files = (
 				15455D132862549200EEF5A4 /* AppDelegate.swift in Sources */,
 				15455CFC2862313800EEF5A4 /* AxeApp.swift in Sources */,
+				15455D1B2862696B00EEF5A4 /* AxeDefaultsKeys.swift in Sources */,
 				15455D0C2862349500EEF5A4 /* LoggerStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,6 +393,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		15455D162862664300EEF5A4 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin";
+			requirement = {
+				kind = exactVersion;
+				version = 4.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		15455D172862664300EEF5A4 /* LaunchAtLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 15455D162862664300EEF5A4 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
+			productName = LaunchAtLogin;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 15455CF02862313800EEF5A4 /* Project object */;
 }
