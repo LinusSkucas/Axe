@@ -12,6 +12,7 @@
 		15455D032862313E00EEF5A4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15455D022862313E00EEF5A4 /* Preview Assets.xcassets */; };
 		15455D0C2862349500EEF5A4 /* LoggerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15455D0B2862349500EEF5A4 /* LoggerStatus.swift */; };
 		15455D1128623F8800EEF5A4 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15455D1028623F8800EEF5A4 /* Carbon.framework */; };
+		15455D132862549200EEF5A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15455D122862549100EEF5A4 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		15455D0A286233A400EEF5A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		15455D0B2862349500EEF5A4 /* LoggerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerStatus.swift; sourceTree = "<group>"; };
 		15455D1028623F8800EEF5A4 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		15455D122862549100EEF5A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			children = (
 				15455D0A286233A400EEF5A4 /* Info.plist */,
 				15455CFB2862313800EEF5A4 /* AxeApp.swift */,
+				15455D122862549100EEF5A4 /* AppDelegate.swift */,
 				15455D0B2862349500EEF5A4 /* LoggerStatus.swift */,
 				15455CFF2862313E00EEF5A4 /* Assets.xcassets */,
 				15455D042862313E00EEF5A4 /* Axe.entitlements */,
@@ -153,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15455D132862549200EEF5A4 /* AppDelegate.swift in Sources */,
 				15455CFC2862313800EEF5A4 /* AxeApp.swift in Sources */,
 				15455D0C2862349500EEF5A4 /* LoggerStatus.swift in Sources */,
 			);
