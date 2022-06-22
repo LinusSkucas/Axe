@@ -45,6 +45,36 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         RunLoop.current.add(timer, forMode: .common)
     }
     
+    func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
+        if mustQuitWithAlert() {
+            let quitAlert = NSAlert()
+            quitAlert.alertStyle = .critical
+            quitAlert.icon = NSImage(named: "NXUpdate")!
+            
+            quitAlert.messageText = "Secure Input is Still Enabled"
+            quitAlert.informativeText = "Quitting Axe will disable Secure Input."
+            
+            quitAlert.showsSuppressionButton = true
+            quitAlert.suppressionButton?.title = "Do not show this warning again"
+            
+            quitAlert.showsHelp = true
+            
+            quitAlert.addButton(withTitle: "Cancel")
+            quitAlert.addButton(withTitle: "Quit Axe")
+            
+            let response = quitAlert.runModal()
+            NSApp.arrangeInFront(nil)
+            
+            if let suppressionButton = quitAlert.suppressionButton,
+               suppressionButton.state == .on {
+                defaults.set(true, forKey: AxeDefaultKeys.quitAlertSuppression.rawValue)
+            }
+            
+            guard response == .alertSecondButtonReturn else { return .terminateCancel }
+        }
+        
+        return .terminateNow
+    }
     
     func changeStatus() {
         guard let button = statusBarItem.button else { return }
@@ -123,32 +153,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func quitAxe() {
-        if mustQuitWithAlert() {
-            let quitAlert = NSAlert()
-            quitAlert.alertStyle = .critical
-            quitAlert.icon = NSImage(named: "NXUpdate")!
-            
-            quitAlert.messageText = "Secure Input is Still Enabled"
-            quitAlert.informativeText = "Quitting Axe will disable Secure Input."
-            
-            quitAlert.showsSuppressionButton = true
-            quitAlert.suppressionButton?.title = "Do not show this warning again"
-            
-            quitAlert.showsHelp = true
-            
-            quitAlert.addButton(withTitle: "Cancel")
-            quitAlert.addButton(withTitle: "Quit Axe")
-            
-            let response = quitAlert.runModal()
-            NSApp.arrangeInFront(nil)
-            
-            if let suppressionButton = quitAlert.suppressionButton,
-               suppressionButton.state == .on {
-                defaults.set(true, forKey: AxeDefaultKeys.quitAlertSuppression.rawValue)
-            }
-            
-            guard response == .alertSecondButtonReturn else { return }
-        }
         NSApp.terminate(nil)
     }
     
