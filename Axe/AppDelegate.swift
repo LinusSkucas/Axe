@@ -8,6 +8,7 @@
 import Cocoa
 import Carbon.HIToolbox.CarbonEventsCore
 import LaunchAtLogin
+import Sparkle
 
 class AppDelegate: NSObject, NSApplicationDelegate {
     var statusBarItem: NSStatusItem!
@@ -20,9 +21,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var statusBarMenu: NSMenu!
     
     let defaults = UserDefaults.standard
+    var updaterController: SPUStandardUpdaterController!
     
     func applicationDidFinishLaunching(_ notification: Notification) {
         statusBarItem = NSStatusBar.system.statusItem(withLength: CGFloat(NSStatusItem.squareLength))
+        
+        updaterController = SPUStandardUpdaterController(startingUpdater: true, updaterDelegate: nil, userDriverDelegate: nil)
         
         guard let button = statusBarItem.button else { return }
         button.image = NSImage(systemSymbolName: loggerStatus.rawValue, accessibilityDescription: nil)
@@ -77,9 +81,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         enableOnOpenItem.action = #selector(toggleEnableOnOpen)
         statusBarMenu.addItem(enableOnOpenItem)
         
-        statusBarMenu.addItem(withTitle: "TODO: Check for Updates...", action: nil, keyEquivalent: "")
         statusBarMenu.addItem(NSMenuItem.separator())
+        
         statusBarMenu.addItem(withTitle: "About Axe", action: #selector(openAboutWindow), keyEquivalent: "")
+        
+        let updaterMenuItem = NSMenuItem()
+        updaterMenuItem.title = "Check for Updates..."
+        updaterMenuItem.target = updaterController
+        updaterMenuItem.action = #selector(SPUStandardUpdaterController.checkForUpdates(_:))
+        statusBarMenu.addItem(updaterMenuItem)
+        
         statusBarMenu.addItem(withTitle: "TODO: Axe Help", action: nil, keyEquivalent: "")
         statusBarMenu.addItem(NSMenuItem.separator())
         statusBarMenu.addItem(withTitle: "Quit Axe\(mustQuitWithAlert() ? "..." : "")", action: #selector(quitAxe), keyEquivalent: "q")

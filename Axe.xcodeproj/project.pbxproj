@@ -16,6 +16,7 @@
 		15455D182862664300EEF5A4 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 15455D172862664300EEF5A4 /* LaunchAtLogin */; };
 		15455D1B2862696B00EEF5A4 /* AxeDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15455D1A2862696B00EEF5A4 /* AxeDefaultsKeys.swift */; };
 		15455D1D28626E9300EEF5A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 15455D1C28626E9300EEF5A4 /* Credits.rtf */; };
+		15455D202862740500EEF5A4 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 15455D1F2862740500EEF5A4 /* Sparkle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15455D202862740500EEF5A4 /* Sparkle in Frameworks */,
 				15455D182862664300EEF5A4 /* LaunchAtLogin in Frameworks */,
 				15455D1128623F8800EEF5A4 /* Carbon.framework in Frameworks */,
 			);
@@ -113,6 +115,7 @@
 			name = Axe;
 			packageProductDependencies = (
 				15455D172862664300EEF5A4 /* LaunchAtLogin */,
+				15455D1F2862740500EEF5A4 /* Sparkle */,
 			);
 			productName = Axe;
 			productReference = 15455CF82862313800EEF5A4 /* Axe.app */;
@@ -144,6 +147,7 @@
 			mainGroup = 15455CEF2862313800EEF5A4;
 			packageReferences = (
 				15455D162862664300EEF5A4 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
+				15455D1E2862740500EEF5A4 /* XCRemoteSwiftPackageReference "Sparkle" */,
 			);
 			productRefGroup = 15455CF92862313800EEF5A4 /* Products */;
 			projectDirPath = "";
@@ -332,6 +336,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Axe/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Axe - Debug";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -361,6 +367,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Axe/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Axe;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -407,6 +415,14 @@
 				version = 4.2.0;
 			};
 		};
+		15455D1E2862740500EEF5A4 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -414,6 +430,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 15455D162862664300EEF5A4 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
 			productName = LaunchAtLogin;
+		};
+		15455D1F2862740500EEF5A4 /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 15455D1E2862740500EEF5A4 /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
