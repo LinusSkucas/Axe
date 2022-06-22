@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleHelpBookFolder</key>
+	<string>Axe.help</string>
+	<key>CFBundleHelpBookName</key>
+	<string>sh.linus.Axe.help</string>
 	<key>SUAutomaticallyUpdate</key>
 	<true/>
 	<key>SUScheduledCheckInterval</key>
@@ -17,6 +21,6 @@
 	<key>SUPublicEDKey</key>
 	<string>LAmHf+bPhs6FvPCCNqlhUQzwq2ja27asAjlvkogLBKY=</string>
 	<key>LSUIElement</key>
-	<true/>
+	<false/>
 </dict>
 </plist>

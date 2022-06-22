@@ -17,6 +17,7 @@
 		15455D1B2862696B00EEF5A4 /* AxeDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15455D1A2862696B00EEF5A4 /* AxeDefaultsKeys.swift */; };
 		15455D1D28626E9300EEF5A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 15455D1C28626E9300EEF5A4 /* Credits.rtf */; };
 		15455D202862740500EEF5A4 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 15455D1F2862740500EEF5A4 /* Sparkle */; };
+		15A1819A2863E1710020D257 /* Axe.help in Resources */ = {isa = PBXBuildFile; fileRef = 15A181992863E1710020D257 /* Axe.help */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		15455D122862549100EEF5A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15455D1A2862696B00EEF5A4 /* AxeDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AxeDefaultsKeys.swift; sourceTree = "<group>"; };
 		15455D1C28626E9300EEF5A4 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
+		15A181992863E1710020D257 /* Axe.help */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Axe.help; path = Axe/Axe.help; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +52,7 @@
 		15455CEF2862313800EEF5A4 = {
 			isa = PBXGroup;
 			children = (
+				15A181992863E1710020D257 /* Axe.help */,
 				15455CFA2862313800EEF5A4 /* Axe */,
 				15455CF92862313800EEF5A4 /* Products */,
 				15455D0F28623F8800EEF5A4 /* Frameworks */,
@@ -163,6 +166,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15A1819A2863E1710020D257 /* Axe.help in Resources */,
 				15455D032862313E00EEF5A4 /* Preview Assets.xcassets in Resources */,
 				15455D1D28626E9300EEF5A4 /* Credits.rtf in Resources */,
 				15455D002862313E00EEF5A4 /* Assets.xcassets in Resources */,

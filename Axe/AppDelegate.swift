@@ -26,6 +26,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ notification: Notification) {
         statusBarItem = NSStatusBar.system.statusItem(withLength: CGFloat(NSStatusItem.squareLength))
         
+        NSHelpManager.shared.registerBooks(in: Bundle.main)
+        
         updaterController = SPUStandardUpdaterController(startingUpdater: true, updaterDelegate: nil, userDriverDelegate: nil)
         
         guard let button = statusBarItem.button else { return }
@@ -121,7 +123,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         updaterMenuItem.action = #selector(SPUStandardUpdaterController.checkForUpdates(_:))
         statusBarMenu.addItem(updaterMenuItem)
         
-        statusBarMenu.addItem(withTitle: "TODO: Axe Help", action: nil, keyEquivalent: "")
+        // TODO: Help
+        statusBarMenu.addItem(withTitle: "Axe Help", action: #selector(openHelp), keyEquivalent: "")
         statusBarMenu.addItem(NSMenuItem.separator())
         statusBarMenu.addItem(withTitle: "Quit Axe\(mustQuitWithAlert() ? "..." : "")", action: #selector(quitAxe), keyEquivalent: "q")
         
@@ -138,6 +141,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     private func mustQuitWithAlert() -> Bool {
         return loggerStatus == .active && (defaults.bool(forKey: AxeDefaultKeys.quitAlertSuppression.rawValue) == false)
+    }
+    
+    @objc func openHelp() {
+        NSHelpManager.shared.openHelpAnchor("Welcome", inBook: Bundle.main.object(forInfoDictionaryKey: "CFBundleHelpBookName") as? String)
     }
     
     @objc func openAboutWindow() {
