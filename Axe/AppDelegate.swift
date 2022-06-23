@@ -60,6 +60,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             quitAlert.suppressionButton?.title = "Do not show this warning again"
             
             quitAlert.showsHelp = true
+            quitAlert.helpAnchor = "Quitting"
             
             quitAlert.addButton(withTitle: "Cancel")
             quitAlert.addButton(withTitle: "Quit Axe")
