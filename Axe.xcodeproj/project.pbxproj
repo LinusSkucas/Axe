@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,16 @@
 		15455D1B2862696B00EEF5A4 /* AxeDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15455D1A2862696B00EEF5A4 /* AxeDefaultsKeys.swift */; };
 		15455D1D28626E9300EEF5A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 15455D1C28626E9300EEF5A4 /* Credits.rtf */; };
 		15455D202862740500EEF5A4 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 15455D1F2862740500EEF5A4 /* Sparkle */; };
+		1574D513286503AD00E141F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15455D122862549100EEF5A4 /* AppDelegate.swift */; };
+		1574D514286503AD00E141F5 /* AxeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15455CFB2862313800EEF5A4 /* AxeApp.swift */; };
+		1574D515286503AD00E141F5 /* AxeDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15455D1A2862696B00EEF5A4 /* AxeDefaultsKeys.swift */; };
+		1574D516286503AD00E141F5 /* LoggerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15455D0B2862349500EEF5A4 /* LoggerStatus.swift */; };
+		1574D519286503AD00E141F5 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 1574D50E286503AD00E141F5 /* LaunchAtLogin */; };
+		1574D51A286503AD00E141F5 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15455D1028623F8800EEF5A4 /* Carbon.framework */; };
+		1574D51C286503AD00E141F5 /* Axe.help in Resources */ = {isa = PBXBuildFile; fileRef = 15A181992863E1710020D257 /* Axe.help */; };
+		1574D51D286503AD00E141F5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15455D022862313E00EEF5A4 /* Preview Assets.xcassets */; };
+		1574D51E286503AD00E141F5 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 15455D1C28626E9300EEF5A4 /* Credits.rtf */; };
+		1574D51F286503AD00E141F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15455CFF2862313E00EEF5A4 /* Assets.xcassets */; };
 		15A1819A2863E1710020D257 /* Axe.help in Resources */ = {isa = PBXBuildFile; fileRef = 15A181992863E1710020D257 /* Axe.help */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +42,9 @@
 		15455D122862549100EEF5A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15455D1A2862696B00EEF5A4 /* AxeDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AxeDefaultsKeys.swift; sourceTree = "<group>"; };
 		15455D1C28626E9300EEF5A4 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
+		1574D524286503AD00E141F5 /* AxeMAS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AxeMAS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1574D5262865041A00E141F5 /* AxeMAS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AxeMAS.entitlements; sourceTree = "<group>"; };
+		1574D5272865068200E141F5 /* AxeMAS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AxeMAS.plist; sourceTree = "<group>"; };
 		15A181992863E1710020D257 /* Axe.help */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Axe.help; path = Axe/Axe.help; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -43,6 +56,15 @@
 				15455D202862740500EEF5A4 /* Sparkle in Frameworks */,
 				15455D182862664300EEF5A4 /* LaunchAtLogin in Frameworks */,
 				15455D1128623F8800EEF5A4 /* Carbon.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1574D517286503AD00E141F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1574D519286503AD00E141F5 /* LaunchAtLogin in Frameworks */,
+				1574D51A286503AD00E141F5 /* Carbon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				15455CF82862313800EEF5A4 /* Axe.app */,
+				1574D524286503AD00E141F5 /* AxeMAS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -72,12 +95,14 @@
 			children = (
 				15455D1C28626E9300EEF5A4 /* Credits.rtf */,
 				15455D0A286233A400EEF5A4 /* Info.plist */,
+				1574D5272865068200E141F5 /* AxeMAS.plist */,
 				15455CFB2862313800EEF5A4 /* AxeApp.swift */,
 				15455D122862549100EEF5A4 /* AppDelegate.swift */,
 				15455D1A2862696B00EEF5A4 /* AxeDefaultsKeys.swift */,
 				15455D0B2862349500EEF5A4 /* LoggerStatus.swift */,
 				15455CFF2862313E00EEF5A4 /* Assets.xcassets */,
 				15455D042862313E00EEF5A4 /* Axe.entitlements */,
+				1574D5262865041A00E141F5 /* AxeMAS.entitlements */,
 				15455D012862313E00EEF5A4 /* Preview Content */,
 			);
 			path = Axe;
@@ -124,6 +149,27 @@
 			productReference = 15455CF82862313800EEF5A4 /* Axe.app */;
 			productType = "com.apple.product-type.application";
 		};
+		1574D50D286503AD00E141F5 /* AxeMAS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1574D521286503AD00E141F5 /* Build configuration list for PBXNativeTarget "AxeMAS" */;
+			buildPhases = (
+				1574D512286503AD00E141F5 /* Sources */,
+				1574D517286503AD00E141F5 /* Frameworks */,
+				1574D51B286503AD00E141F5 /* Resources */,
+				1574D520286503AD00E141F5 /* Copy "Launch at Login Helper" */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AxeMAS;
+			packageProductDependencies = (
+				1574D50E286503AD00E141F5 /* LaunchAtLogin */,
+			);
+			productName = Axe;
+			productReference = 1574D524286503AD00E141F5 /* AxeMAS.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -140,7 +186,7 @@
 				};
 			};
 			buildConfigurationList = 15455CF32862313800EEF5A4 /* Build configuration list for PBXProject "Axe" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -157,6 +203,7 @@
 			projectRoot = "";
 			targets = (
 				15455CF72862313800EEF5A4 /* Axe */,
+				1574D50D286503AD00E141F5 /* AxeMAS */,
 			);
 		};
 /* End PBXProject section */
@@ -173,10 +220,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1574D51B286503AD00E141F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1574D51C286503AD00E141F5 /* Axe.help in Resources */,
+				1574D51D286503AD00E141F5 /* Preview Assets.xcassets in Resources */,
+				1574D51E286503AD00E141F5 /* Credits.rtf in Resources */,
+				1574D51F286503AD00E141F5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		15455D192862666800EEF5A4 /* Copy "Launch at Login Helper" */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy \"Launch at Login Helper\"";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILT_PRODUCTS_DIR}/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Resources/copy-helper-swiftpm.sh\"\n";
+		};
+		1574D520286503AD00E141F5 /* Copy "Launch at Login Helper" */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -206,6 +283,17 @@
 				15455CFC2862313800EEF5A4 /* AxeApp.swift in Sources */,
 				15455D1B2862696B00EEF5A4 /* AxeDefaultsKeys.swift in Sources */,
 				15455D0C2862349500EEF5A4 /* LoggerStatus.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1574D512286503AD00E141F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1574D513286503AD00E141F5 /* AppDelegate.swift in Sources */,
+				1574D514286503AD00E141F5 /* AxeApp.swift in Sources */,
+				1574D515286503AD00E141F5 /* AxeDefaultsKeys.swift in Sources */,
+				1574D516286503AD00E141F5 /* LoggerStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +439,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = sh.linus.Axe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG SPARKLE";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -382,6 +471,71 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = sh.linus.Axe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SPARKLE;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		1574D522286503AD00E141F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Axe/AxeMAS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_ASSET_PATHS = "\"Axe/Preview Content\"";
+				DEVELOPMENT_TEAM = P6PV2R9443;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Axe/AxeMAS.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Axe - Debug";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sh.linus.Axe;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		1574D523286503AD00E141F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Axe/AxeMAS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_ASSET_PATHS = "\"Axe/Preview Content\"";
+				DEVELOPMENT_TEAM = P6PV2R9443;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Axe/AxeMAS.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Axe;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sh.linus.Axe;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -408,6 +562,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		1574D521286503AD00E141F5 /* Build configuration list for PBXNativeTarget "AxeMAS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1574D522286503AD00E141F5 /* Debug */,
+				1574D523286503AD00E141F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -427,6 +590,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		1574D50F286503AD00E141F5 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin";
+			requirement = {
+				kind = exactVersion;
+				version = 4.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -439,6 +610,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 15455D1E2862740500EEF5A4 /* XCRemoteSwiftPackageReference "Sparkle" */;
 			productName = Sparkle;
+		};
+		1574D50E286503AD00E141F5 /* LaunchAtLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1574D50F286503AD00E141F5 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
+			productName = LaunchAtLogin;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

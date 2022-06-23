@@ -8,7 +8,9 @@
 import Cocoa
 import Carbon.HIToolbox.CarbonEventsCore
 import LaunchAtLogin
+#if SPARKLE
 import Sparkle
+#endif
 
 class AppDelegate: NSObject, NSApplicationDelegate {
     var statusBarItem: NSStatusItem!
@@ -21,14 +23,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var statusBarMenu: NSMenu!
     
     let defaults = UserDefaults.standard
+    
+    #if SPARKLE
     var updaterController: SPUStandardUpdaterController!
+    #endif
     
     func applicationDidFinishLaunching(_ notification: Notification) {
         statusBarItem = NSStatusBar.system.statusItem(withLength: CGFloat(NSStatusItem.squareLength))
         
         NSHelpManager.shared.registerBooks(in: Bundle.main)
         
+        #if SPARKLE
         updaterController = SPUStandardUpdaterController(startingUpdater: true, updaterDelegate: nil, userDriverDelegate: nil)
+        #endif
         
         guard let button = statusBarItem.button else { return }
         button.image = NSImage(systemSymbolName: loggerStatus.rawValue, accessibilityDescription: nil)
@@ -123,11 +130,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         statusBarMenu.addItem(withTitle: "About Axe", action: #selector(openAboutWindow), keyEquivalent: "")
         
+        #if SPARKLE
         let updaterMenuItem = NSMenuItem()
         updaterMenuItem.title = "Check for Updates..."
         updaterMenuItem.target = updaterController
         updaterMenuItem.action = #selector(SPUStandardUpdaterController.checkForUpdates(_:))
         statusBarMenu.addItem(updaterMenuItem)
+        #endif
         
         // TODO: Help
         statusBarMenu.addItem(withTitle: "Axe Help", action: #selector(openHelp), keyEquivalent: "")
