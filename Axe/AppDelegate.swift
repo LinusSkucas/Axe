@@ -41,6 +41,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             loggerStatus = .active
         }
         
+        if !defaults.bool(forKey: AxeDefaultKeys.hasOpenedBefore.rawValue) {
+            openHelp()
+            defaults.set(true, forKey: AxeDefaultKeys.hasOpenedBefore.rawValue)
+        }
+        
         // Setup Timer
         timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(checkOtherActiviations), userInfo: nil, repeats: true)
         timer.tolerance = 7.0

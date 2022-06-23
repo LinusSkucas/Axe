@@ -10,4 +10,5 @@ import Foundation
 enum AxeDefaultKeys: String {
     case quitAlertSuppression = "QuitAlertSuppression"
     case enableOnOpen = "EnableOnOpen"
+    case hasOpenedBefore = "HasOpenedBefore"
 }
